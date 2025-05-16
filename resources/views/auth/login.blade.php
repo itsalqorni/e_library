@@ -1,17 +1,24 @@
 <x-guest-layout>
-    <div class="flex items-center justify-center bg-[#fdf6e3] font-serif"> {{-- min-h-screen  --}}
-        <form action="{{ route('login') }}" method="post" class="bg-white border border-yellow-200 shadow-lg rounded-xl p-10 w-full max-w-md space-y-6">
+    <div class="flex items-center justify-center bg-[#FFD700] font-serif px-4">
+        <form action="{{ route('login') }}" method="post"
+              class="bg-white bg-opacity-90 border border-[#FFD700]/60 shadow-2xl rounded-3xl p-10 w-full max-w-md space-y-7
+                     backdrop-blur-sm"
+        >
             @csrf
 
             <!-- Judul -->
             <div class="text-center">
-                <h2 class="text-3xl font-bold text-gray-800">📘 Library Login</h2>
-                <p class="text-sm text-gray-500 mt-1">Access your library account</p>
+                <h2 class="text-3xl font-extrabold drop-shadow-md text-[#1e3a8a]  tracking-wider">
+                    📘 Library Login
+                </h2>
+                <p class="text-sm text-[#1e3a8a] mt-2 font-semibold">
+                    Access your library account
+                </p>
             </div>
 
             <!-- Email -->
             <div>
-                <label for="email" class="block font-medium text-gray-700">{{ __('Email') }}</label>
+                <label for="email" class="block font-semibold text-[#1e3a8a] mb-1">{{ __('Email') }}</label>
                 <input
                     id="email"
                     type="email"
@@ -19,32 +26,36 @@
                     :value="old('email')"
                     required autofocus autocomplete="email"
                     placeholder="example@library.com"
-                    class="mt-1 block w-full bg-[#fdfaf3] border border-yellow-300 rounded-lg shadow-sm focus:border-yellow-500 focus:ring-yellow-300"
+                    class="mt-1 block w-full rounded-xl border-2 border-[#FFD700] bg-white text-[#1e3a8a] 
+                           shadow-md placeholder-[#999] focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/50 transition"
                 >
             </div>
 
             <!-- Password -->
             <div>
-                <label for="password" class="block font-medium text-gray-700">{{ __('Password') }}</label>
+                <label for="password" class="block font-semibold text-[#1e3a8a] mb-1">{{ __('Password') }}</label>
                 <input
                     id="password"
                     type="password"
                     name="password"
                     required autocomplete="current-password"
                     placeholder="Enter your password"
-                    class="mt-1 block w-full bg-[#fdfaf3] border border-yellow-300 rounded-lg shadow-sm focus:border-yellow-500 focus:ring-yellow-300"
+                    class="mt-1 block w-full rounded-xl border-2 border-[#FFD700] bg-white text-[#1e3a8a] 
+                           shadow-md placeholder-[#999] focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/50 transition"
                 >
             </div>
 
             <!-- Remember + Forgot -->
-            <div class="flex items-center justify-between">
-                <label class="flex items-center text-sm text-gray-700">
-                    <input type="checkbox" name="remember" id="remember" class="rounded border-gray-300 text-yellow-600 shadow-sm focus:ring-yellow-500">
-                    <span class="ml-2">{{ __('Remember me') }}</span>
+            <div class="flex items-center justify-between text-sm">
+                <label class="flex items-center text-[#1e3a8a] font-medium">
+                    <input type="checkbox" name="remember" id="remember"
+                           class="rounded border-[#FFD700] text-[#FFD700] shadow-sm focus:ring-[#FFD700]">
+                    <span class="ml-2 select-none"> {{ __('Remember me') }}</span>
                 </label>
 
                 @if (Route::has('password.request'))
-                    <a class="text-sm text-blue-600 hover:underline" href="{{ route('password.request') }}">
+                    <a class="text-[#1e3a8a] font-semibold hover:text-[#FFD700] hover:underline transition"
+                       href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
@@ -53,7 +64,9 @@
             <!-- Button -->
             <div>
                 <button type="submit"
-                    class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all duration-200 ease-in-out">
+                        class="w-full bg-[#FFD700] hover:bg-yellow-400 text-[#1e3a8a] font-extrabold py-3 rounded-2xl
+                               shadow-lg transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#1e3a8a]/50"
+                >
                     {{ __('Log in') }}
                 </button>
             </div>
